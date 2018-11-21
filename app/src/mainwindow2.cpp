@@ -328,6 +328,7 @@ void MainWindow2::createMenus()
     connect(ui->actionEyedropper, &QAction::triggered, mToolBox, &ToolBoxWidget::eyedropperOn);
     connect(ui->actionEraser, &QAction::triggered, mToolBox, &ToolBoxWidget::eraserOn);
     connect(ui->actionResetToolsDefault, &QAction::triggered, mEditor->tools(), &ToolManager::resetAllTools);
+    connect(ui->actionPrevious_Tool, &QAction::triggered, mEditor->tools(), &ToolManager::setPreviousTool);
 
     /// --- Window Menu ---
     QMenu* winMenu = ui->menuWindows;
@@ -1057,6 +1058,7 @@ void MainWindow2::setupKeyboardShortcuts()
     ui->actionBucket->setShortcut(cmdKeySeq(CMD_TOOL_BUCKET));
     ui->actionEyedropper->setShortcut(cmdKeySeq(CMD_TOOL_EYEDROPPER));
     ui->actionEraser->setShortcut(cmdKeySeq(CMD_TOOL_ERASER));
+    ui->actionPrevious_Tool->setShortcut(cmdKeySeq(CMD_TOOL_PREVIOUS));
 
     ui->actionMove->installEventFilter(shortcutfilter);
     ui->actionMove->installEventFilter(shortcutfilter);

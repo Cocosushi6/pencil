@@ -16,6 +16,7 @@ GNU General Public License for more details.
 */
 #include "toolmanager.h"
 
+#include <iostream>
 #include <cmath>
 #include "pentool.h"
 #include "penciltool.h"
@@ -90,11 +91,19 @@ void ToolManager::setCurrentTool(ToolType eToolType)
 {
     if (mCurrentTool != NULL)
     {
-       leavingThisTool();
+        leavingThisTool();
     }
 
+    mPreviousTool = mCurrentTool;
     mCurrentTool = getTool(eToolType);
     Q_EMIT toolChanged(eToolType);
+}
+
+void ToolManager::setPreviousTool()
+{
+    if(mPreviousTool != nullptr) {
+        setCurrentTool(mPreviousTool->type());
+    }
 }
 
 bool ToolManager::leavingThisTool()

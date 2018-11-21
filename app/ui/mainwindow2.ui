@@ -182,6 +182,7 @@
     <addaction name="actionBucket"/>
     <addaction name="actionEyedropper"/>
     <addaction name="actionEraser"/>
+    <addaction name="actionPrevious_Tool"/>
     <addaction name="separator"/>
     <addaction name="actionResetToolsDefault"/>
    </widget>
@@ -886,6 +887,14 @@
   <action name="actionExport_Animated_GIF">
    <property name="text">
     <string>Animated GIF...</string>
+   </property>
+  </action>
+  <action name="actionPrevious_Tool">
+   <property name="text">
+    <string>Revert to previous tool</string>
+   </property>
+   <property name="toolTip">
+    <string>Makes the previous tool the current one</string>
    </property>
   </action>
  </widget>

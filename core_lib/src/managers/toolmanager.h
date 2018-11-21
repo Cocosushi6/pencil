@@ -36,6 +36,7 @@ public:
     Status save(Object*) override;
 
     BaseTool* currentTool() { return mCurrentTool; }
+    BaseTool* previousTool() { return mPreviousTool; }
     BaseTool* getTool(ToolType eToolType);
     void setDefaultTool();
     void setCurrentTool(ToolType eToolType);
@@ -56,6 +57,7 @@ Q_SIGNALS:
 
 public slots:
     void resetAllTools();
+    void setPreviousTool();
 
     void setWidth(float);
     void setFeather(float);
@@ -72,6 +74,7 @@ public slots:
 
 private:
     BaseTool * mCurrentTool = nullptr;
+    BaseTool * mPreviousTool = nullptr;
     ToolType  meTabletBackupTool = PENCIL;
     bool mIsSwitchedToEraser = false;
     QHash<ToolType, BaseTool*> mToolSetHash;
